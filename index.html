@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giovanni Montana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e14;--card:#111820;--card-hover:#161e2a;--border:#1e2a3a;--text:#8b95a5;--bright:#c5cdd8;--muted:#4a5568;--accent:#3b82f6;--green:#10b981;--purple:#8b5cf6;--orange:#f59e0b;--cyan:#06b6d4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--green);vertical-align:text-bottom;animation:blink 1s step-end infinite;margin-left:2px}
+.header{max-width:960px;margin:0 auto;padding:80px 24px 32px}
+.prompt{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.prompt span{color:var(--green)}
+h1{font-family:'JetBrains Mono',monospace;font-size:2.6rem;font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:12px}
+.subtitle{font-size:1.05rem;color:var(--text);max-width:650px;margin-bottom:20px;line-height:1.7}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links a{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);text-decoration:none;padding:5px 12px;border:1px solid var(--border);border-radius:5px;transition:.2s}
+.links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.section{max-width:960px;margin:0 auto;padding:40px 24px 60px}
+.section-head{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.section-head::before{content:'>';color:var(--green)}
+.algo-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.card:hover{border-color:#2a3a50;background:var(--card-hover);transform:translateY(-1px)}
+.card-left{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.card-name{font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:700;white-space:nowrap}
+.card-venue{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--orange);white-space:nowrap}
+.card-oneliner{font-size:.82rem;color:var(--bright);line-height:1.45}
+.card-detail{display:none;padding-top:12px;border-top:1px solid var(--border);margin-top:12px}
+.card.open .card-detail{display:block}
+.card-detail .meta{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:8px}
+.card-detail p{font-size:.8rem;color:var(--text);line-height:1.55}
+.footer{max-width:960px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:600px){h1{font-size:1.8rem}.algo-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="prompt"><span>~</span> giovanni.montana</div>
+  <h1>Giovanni Montana<span class="cursor"></span></h1>
+  <div class="subtitle">I build machine learning algorithms. My group develops new methods for reinforcement learning, autonomous decision-making, and AI for medical imaging &mdash; from theory to real-world deployment.</div>
+  <div class="links">
+    <a href="https://scholar.google.co.uk/citations?user=tD5eGlkAAAAJ">Google Scholar</a>
+    <a href="https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/montana/">University of Warwick</a>
+    <a href="https://github.com/gmontana">GitHub</a>
+  </div>
+</div>
+<div class="section">
+  <div class="section-head">algorithms</div>
+  <div class="algo-list" id="algoList"></div>
+</div>
+<div class="footer">
+  <div>&copy; 2026 Giovanni Montana</div>
+  <div>Professor of Data Science &middot; University of Warwick</div>
+</div>
+<script>
+var C={b:'var(--accent)',c:'var(--cyan)',g:'var(--green)',p:'var(--purple)',o:'var(--orange)'};
+var P=[
+// 2026
+{n:"PAR",c:"c",y:2026,v:"AAAI 2026",o:"Offline multi-agent RL with partial action replacement",a:"Y Jin, G Montana",d:"Replaces one agent's action at a time during offline MARL updates, reducing distribution shift from exponential to linear in the number of agents."},
+{n:"OSO-DecQN",c:"b",y:2026,v:"2026",o:"Action-free offline-to-online RL via discretised state policies",a:"NS Neggatu, J Houssineau, G Montana",d:"Formalises action-free offline RL where datasets lack action labels. Learns state policies predicting desirable next states via inverse dynamics."},
+{n:"LLM-Tox",c:"g",y:2026,v:"LMRL@ICLR 2026",o:"Generating datasets for drug-induced toxicity mechanisms using LLM tools",a:"S Masarone, A Beeson, KV Beckwith, M Mason, T Clelford, A Willmott, ..., G Montana",d:"LLM-supported framework for generating novel datasets describing mechanisms of drug-induced toxicity."},
+{n:"ActionDimCoord",c:"b",y:2026,v:"2026",o:"Action dimension coordination via centralised critics for continuous control",a:"NS Neggatu, J Houssineau, G Montana",d:"Centralised critic architecture for coordinating across action dimensions in continuous control tasks."},
+// 2025
+{n:"LOM",c:"b",y:2025,v:"ICLR 2025",o:"Addressing multi-modality in offline reinforcement learning",a:"M Wang, Y Jin, G Montana",d:"Models behaviour policy as a Gaussian mixture, uses a hyper Q-function to select the best mode per state. Outperforms complex generative approaches."},
+{n:"InterRetro",c:"b",y:2025,v:"NeurIPS 2025",o:"Retrosynthesis planning via worst-path optimisation in tree MDPs",a:"M Wang, G Montana",d:"Reframes chemical retrosynthesis as worst-path optimisation. 100% solve rate on Retro*-190, shortening routes by 4.9%."},
+{n:"MARC",c:"c",y:2025,v:"AAAI 2025",o:"Relational state abstraction for collaborative multi-agent RL",a:"S Utke, J Houssineau, G Montana",d:"Actor-critic with spatial GNN for multi-agent collaboration. Minimal relational inductive bias yields substantial gains."},
+{n:"StaCQ",c:"b",y:2025,v:"TMLR 2025",o:"State-constrained offline reinforcement learning",a:"CA Hepburn, Y Jin, G Montana",d:"Constrains the policy to the dataset's state distribution, allowing novel actions as long as they lead to in-distribution states."},
+{n:"EvalSwitch",c:"b",y:2025,v:"AAMAS 2025",o:"Evaluation-time policy switching for offline RL",a:"NS Neggatu, J Houssineau, G Montana",d:"Dynamically blends RL and BC agents at evaluation time using epistemic and aleatoric uncertainty."},
+{n:"SPReD",c:"b",y:2025,v:"2025",o:"Smooth policy regularisation for RL with few demonstrations",a:"Y Zhu, CA Hepburn, M Thorpe, G Montana",d:"Ensemble uncertainty assigns continuous weights to behavioural cloning loss. Up to 14x improvement across eight robotics tasks."},
+{n:"SuggShare",c:"c",y:2025,v:"Machine Learning 2025",o:"Collective welfare in multi-agent RL via suggestion sharing",a:"Y Jin, S Wei, G Montana",d:"Agents exchange action suggestions to align self-interest with collective welfare. Privacy-preserving cooperative MARL."},
+{n:"DynPriceRL",c:"b",y:2025,v:"2025",o:"Dynamic pricing in high-speed railways using multi-agent RL",a:"EA Villarrubia-Martin, L Rodriguez-Benitez, D Mu\u00f1oz-Valero, G Montana, ...",d:"Multi-agent RL approach to dynamic pricing in high-speed railway systems."},
+{n:"OfflineRL-CAP",c:"b",y:2025,v:"ECML 2025",o:"Offline RL for community-acquired pneumonia management",a:"A Beeson, K Couper, G Montana",d:"Feasibility study applying offline RL to clinical decision-making for pneumonia management."},
+{n:"AlScrapCV",c:"g",y:2025,v:"J Sustainable Metallurgy 2025",o:"Computer vision-based aluminum scrap grade classification",a:"Y Quan, M Dunn, G Montana, Z Li",d:"Computer vision for automated classification of aluminum scrap grades to enable upcycling."},
+{n:"VerifiedUnlearn",c:"b",y:2025,v:"2025",o:"Efficient verified machine unlearning for distillation",a:"Y Quan, Z Li, G Montana",d:"Framework for verifiably removing data influence from distilled machine learning models."},
+// 2024
+{n:"REValueD",c:"b",y:2024,v:"ICLR 2024",o:"Ensemble value-decomposition for high-dimensional action spaces",a:"D Ireland, G Montana",d:"Value-decomposition for RL in factorisable action spaces. Ensemble critics plus regularisation. State-of-the-art on humanoid and dog control."},
+{n:"GOPlan",c:"b",y:2024,v:"TMLR 2024",o:"Goal-conditioned offline RL by planning with learned models",a:"M Wang, R Yang, X Chen, H Sun, M Fang, G Montana",d:"Model-based framework using advantage-weighted conditional GANs and reanalysis with learned dynamics."},
+{n:"DAWOG",c:"b",y:2024,v:"Machine Learning 2024",o:"Goal-conditioned offline RL through state space partitioning",a:"M Wang, Y Jin, G Montana",d:"Dual advantage-weighting with value-based state space partitioning. Theoretical guarantees of non-inferiority."},
+{n:"MBTS",c:"b",y:2024,v:"Machine Learning 2024",o:"Model-based trajectory stitching for improved offline RL",a:"CA Hepburn, G Montana",d:"Stitches segments from different trajectories using learned dynamics. Improves any offline RL method."},
+{n:"TD3-BC+",c:"b",y:2024,v:"Machine Learning 2024",o:"Relaxed policy constraint for offline learning and online fine-tuning",a:"A Beeson, G Montana",d:"Gradually reduces BC constraint during offline RL. Stable offline-to-online fine-tuning with smaller ensembles."},
+{n:"MMQ",c:"c",y:2024,v:"2024",o:"Mitigating relative over-generalisation in multi-agent RL",a:"T Zhu, Y Jin, J Houssineau, G Montana",d:"MaxMax Q-Learning for decentralised MARL without inter-agent communication."},
+{n:"DecQN-Offline",c:"b",y:2024,v:"2024",o:"Offline RL in factorisable action spaces",a:"A Beeson, D Ireland, G Montana",d:"First systematic study of offline RL in factorisable discrete action spaces with new benchmarks."},
+{n:"OpenXRay",c:"g",y:2024,v:"Lancet Digital Health 2024",o:"Open-source deep networks for comprehensive chest x-ray reading",a:"YD Cid, M Macpherson, ..., G Montana",d:"Development and validation of open-source deep neural networks for comprehensive chest x-ray interpretation."},
+{n:"BreastAI-Risk",c:"g",y:2024,v:"Breast Cancer Res 2024",o:"Are better AI detection algorithms also better at predicting risk?",a:"R Santeramo, C Damiani, J Wei, G Montana, AR Brentnall",d:"Paired case-control study examining whether detection-optimised AI also predicts future breast cancer risk."},
+{n:"XR-ReID",c:"g",y:2024,v:"Radiology AI 2024",o:"Patient re-identification from chest radiographs",a:"MS Macpherson, CE Hutchinson, C Horst, V Goh, G Montana",d:"Interpretable deep metric learning for patient re-identification and longitudinal tracking from chest X-rays."},
+{n:"MultiTaskXR",c:"g",y:2024,v:"CL 2024",o:"Multi-task transformer for fine-grained labelling of chest x-ray reports",a:"Y Zhu, M Liakata, G Montana",d:"Transformer model for automated fine-grained labelling of radiology reports."},
+{n:"DecoderEmo",c:"b",y:2024,v:"Scientific Reports 2024",o:"Decoding viewer emotions in video ads",a:"A Antonov, SS Kumar, J Wei, W Headley, O Wood, G Montana",d:"Machine learning to decode viewer emotional responses from physiological signals."},
+{n:"ScreenOpt",c:"g",y:2024,v:"NPJ Digital Med 2023",o:"Optimisation framework for risk-based cancer screening thresholds",a:"AR Brentnall, EC Atakpa, H Hill, R Santeramo, C Damiani, J Cuzick, ..., G Montana",d:"Optimisation framework for choosing risk thresholds in population cancer screening."},
+{n:"XR-Rank",c:"g",y:2024,v:"MIDL 2024",o:"Automated ranking of chest x-ray radiological finding severity",a:"M Macpherson, K Muthuswamy, A Amlani, V Goh, G Montana",d:"Automated ranking of radiological finding severity in chest x-rays in a binary label setting."},
+{n:"XR-Age",c:"g",y:2024,v:"MICCAI 2022",o:"Assessing automated prediction of patient age from chest x-rays",a:"M MacPherson, K Muthuswamy, A Amlani, C Hutchinson, V Goh, G Montana",d:"Assessment of AI performance for predicting and ranking patient age from chest radiographs against clinicians."},
+// 2023
+{n:"BREST",c:"g",y:2023,v:"Radiology 2023",o:"AI model for breast cancer risk assessment from mammography",a:"C Damiani, G Kalliatakis, M Sreenivas, M Al-Attar, J Rose, C Pudney, G Montana",d:"Deep learning for future breast cancer risk from screening mammograms. Validated on large-scale NHS data."},
+{n:"CDC",c:"c",y:2023,v:"Machine Learning 2023",o:"Multi-agent coordination through connectivity-driven communication",a:"E Pesce, G Montana",d:"Agents as nodes of a dynamic weighted graph with heat-diffusion attention. Topology learned alongside policy."},
+{n:"DVOS",c:"b",y:2023,v:"IEEE TCSVT 2023",o:"Decoupling multimodal transformers for referring video object segmentation",a:"M Gao, J Yang, J Han, K Lu, F Zheng, G Montana",d:"Decoupled multimodal transformer for referring video object segmentation from language queries."},
+{n:"VideoPointMem",c:"b",y:2023,v:"Pattern Recognition 2023",o:"Video object segmentation using point-based memory network",a:"M Gao, J Han, F Zheng, JJQ Yu, G Montana",d:"Point-based memory network for semi-supervised video object segmentation."},
+{n:"GraphColourQL",c:"b",y:2023,v:"LION 2023",o:"Graph colouring heuristic with deep Q-learning and GNNs",a:"G Watkins, G Montana, J Branke",d:"Generates graph colouring heuristics using deep Q-learning combined with graph neural networks."},
+{n:"UAV-MARL",c:"c",y:2023,v:"CMAS@AAMAS 2023",o:"Benchmarking multi-agent deep RL for cooperative UAV missions",a:"E Pesce, R Dalmau, L Owen, G Montana",d:"Benchmark for multi-agent deep RL applied to cooperative missions of unmanned aerial vehicles."},
+// 2022
+{n:"LeNSE",c:"b",y:2022,v:"ICML 2022",o:"Large-scale combinatorial optimisation via subgraph embeddings",a:"D Ireland, G Montana",d:"GNN embeddings and Q-learning to prune massive graphs for NP-hard problems. Scales to 10M edges."},
+{n:"SLDR",c:"b",y:2022,v:"Machine Learning 2022",o:"Robotic manipulation via simulated locomotion demonstrations",a:"O Kilinc, G Montana",d:"Reframes manipulation as locomotion from the object's perspective. No human demos needed."},
+{n:"TopoLoss",c:"g",y:2022,v:"IEEE TMI 2022",o:"Topological loss for cardiac MRI segmentation",a:"N Byrne, JR Clough, I Valverde, G Montana, AP King",d:"Persistent homology-based loss preserving anatomical connectivity in cardiac segmentation."},
+// 2021
+{n:"DexManip",c:"b",y:2021,v:"ICML 2021",o:"Dexterous manipulation with trajectory optimisation and RL",a:"H Charlesworth, G Montana",d:"Challenging tasks for robotic hands (pen spinning, two-hand passing) solved by trajectory optimisation."},
+// 2020
+{n:"Plangan",c:"b",y:2020,v:"NeurIPS 2020",o:"Model-based planning with sparse rewards and multiple goals",a:"H Charlesworth, G Montana",d:"Planning with learned world models for sparse-reward, multi-goal environments."},
+{n:"TopoPersist",c:"g",y:2020,v:"STACOM 2020",o:"Persistent homology-based topological loss for cardiac MRI",a:"N Byrne, JR Clough, G Montana, AP King",d:"Workshop version introducing topological loss for cardiac segmentation using persistent homology."},
+{n:"FollowObj",c:"b",y:2020,v:"2020",o:"Curriculum learning for manipulation tasks with imagined goals",a:"O Kilinc, G Montana",d:"Curriculum learning using imagined goals to progressively increase manipulation task difficulty."},
+{n:"BrainAgeOrd",c:"p",y:2020,v:"SPIE Medical Imaging 2020",o:"Ordinal regression CNN for brain age prediction from MRI",a:"K Sokolova, GJ Barker, G Montana",d:"Ordinal regression CNN for more robust brain age prediction from MRI scans."},
+{n:"FetalAorta",c:"g",y:2020,v:"Neural Comput & Applic 2020",o:"Real-time fetal aorta diameter measurement from ultrasound",a:"N Savioli, E Grisan, S Visentin, E Cosmi, G Montana, P Lamata",d:"Automated real-time measurement of fetal aorta diameter from ultrasound images."},
+{n:"MARL-Noisy",c:"c",y:2020,v:"Machine Learning 2020",o:"Improving coordination in small-scale multi-agent deep RL through memory-driven communication",a:"E Pesce, G Montana",d:"Memory-driven communication for multi-agent coordination robust to extremely noisy observations."},
+// 2019
+{n:"X-Raydar",c:"g",y:2019,v:"Radiology 2019",o:"Automated chest X-ray triage with deep neural networks",a:"M Annarumma, SJ Withey, RJ Bakewell, E Pesce, V Goh, G Montana",d:"Automated triaging of adult chest radiographs. Deployed in NHS hospitals."},
+{n:"VisAttn",c:"g",y:2019,v:"Medical Image Analysis 2019",o:"Visual attention networks for pulmonary lesion detection",a:"E Pesce, SJ Withey, PP Ypsilantis, R Bakewell, V Goh, G Montana",d:"Visual attention networks learning where to look in chest X-rays for interpretable lesion detection."},
+{n:"BayesTest",c:"b",y:2019,v:"IEEE ITSC 2019",o:"Bayesian optimisation for automated driving test case identification",a:"B Gangopadhyay, S Khastgir, S Dey, P Dasgupta, G Montana, P Jennings",d:"Bayesian optimisation for efficiently identifying critical test cases for automated driving systems."},
+{n:"SkillTransfer",c:"b",y:2019,v:"2019",o:"Skill transfer in deep RL under morphological heterogeneity",a:"Y Hu, G Montana",d:"Transfer learning for deep RL agents with different body morphologies."},
+{n:"TopoPaed",c:"g",y:2019,v:"PIPPI 2019",o:"Topology-preserving augmentation for segmentation of congenital heart defects",a:"N Byrne, JR Clough, I Valverde, G Montana, AP King",d:"Topology-preserving data augmentation for CNN segmentation of 3D paediatric cardiac MRI."},
+{n:"SpectralComm",c:"b",y:2019,v:"2019",o:"Spectral multi-scale community detection in temporal networks",a:"Z Kuncheva, G Montana",d:"Spectral approach for multi-scale community detection in temporal networks."},
+// 2018
+{n:"DynFConn",c:"p",y:2018,v:"Nature Communications 2018",o:"Dissociating frontoparietal brain networks with neuroadaptive Bayesian optimisation",a:"R Lorenz, IR Violante, RP Monti, G Montana, A Hampshire, R Leech",d:"Neuroadaptive Bayesian optimisation to dissociate frontoparietal networks in real-time fMRI."},
+{n:"RadLSTM",c:"g",y:2018,v:"DLMIA 2018",o:"Longitudinal detection of radiological abnormalities with time-modulated LSTM",a:"R Santeramo, S Withey, G Montana",d:"Time-modulated LSTM for detecting changes across longitudinal chest X-ray series."},
+{n:"RF-Manifold",c:"b",y:2018,v:"Pattern Recog Letters 2018",o:"Random forest regression for manifold-valued responses",a:"D Tsagkrasoulis, G Montana",d:"Random forests extended to handle responses on manifolds rather than Euclidean space."},
+{n:"DeepMetricRad",c:"g",y:2018,v:"SAC 2018",o:"Deep metric learning for multi-labelled radiographs",a:"M Annarumma, G Montana",d:"Deep metric learning for multi-label classification of chest radiographs."},
+{n:"AdaptLasso",c:"b",y:2018,v:"Stat Anal Data Mining 2018",o:"Adaptive regularization for lasso models in nonstationary data streams",a:"RP Monti, C Anagnostopoulos, G Montana",d:"Adaptive regularisation for streaming lasso when data distributions change over time."},
+{n:"V-FCNN",c:"g",y:2018,v:"STACOM 2018",o:"Volumetric fully convolutional neural network for atrial segmentation",a:"N Savioli, G Montana, P Lamata",d:"3D fully convolutional network for automated left atrial segmentation from cardiac MRI."},
+{n:"CardiacGAN",c:"g",y:2018,v:"2018",o:"Generative adversarial model for right ventricle segmentation",a:"N Savioli, MS Vieira, P Lamata, G Montana",d:"GAN-based approach for automated right ventricle segmentation from cardiac MRI."},
+{n:"CardiacAuto",c:"g",y:2018,v:"ASONAM 2018",o:"Automated segmentation on the entire cardiac cycle using deep learning",a:"N Savioli, MS Vieira, P Lamata, G Montana",d:"Deep learning for automated cardiac segmentation across the full cardiac cycle."},
+{n:"TemporalFetal",c:"g",y:2018,v:"ICANN 2018",o:"Temporal convolution networks for real-time fetal aorta analysis",a:"N Savioli, S Visentin, E Cosmi, E Grisan, P Lamata, G Montana",d:"Temporal convolutional networks for real-time analysis of fetal aorta from ultrasound sequences."},
+{n:"RealTimeFConn",c:"p",y:2017,v:"Human Brain Mapping 2017",o:"Real-time estimation of dynamic functional connectivity networks",a:"RP Monti, R Lorenz, RM Braga, C Anagnostopoulos, R Leech, G Montana",d:"Real-time estimation of dynamic functional brain connectivity from fMRI data."},
+// 2017
+{n:"BrainAge",c:"p",y:2017,v:"NeuroImage 2017",o:"Predicting brain age from raw imaging data with deep learning",a:"JH Cole, RPK Poudel, D Tsagkrasoulis, MWA Caan, C Steves, G Montana",d:"3D CNNs predicting biological brain age. The predicted-actual age gap is a heritable biomarker of neurodegeneration."},
+{n:"FaceHerit",c:"p",y:2017,v:"Scientific Reports 2017",o:"Heritability maps of human face morphology through automated 3D phenotyping",a:"D Tsagkrasoulis, P Hysi, T Spector, G Montana",d:"Large-scale automated 3D phenotyping pipeline mapping heritability of facial features."},
+{n:"RecurrentXR",c:"g",y:2017,v:"2017",o:"Learning what to look in chest X-rays with a recurrent visual attention model",a:"PP Ypsilantis, G Montana",d:"Recurrent attention model that sequentially focuses on informative regions of chest radiographs."},
+{n:"PopSubjConn",c:"p",y:2017,v:"Ann Appl Stat 2017",o:"Learning population and subject-specific brain connectivity via mixed neighbourhood selection",a:"RP Monti, C Anagnostopoulos, G Montana",d:"Mixed neighbourhood selection for population-level and individual brain connectivity estimation."},
+{n:"PPARG-ML",c:"p",y:2017,v:"PNAS 2017",o:"Machine learning links genetic variability in PPARG to cerebral connectivity",a:"ML Krishnan, Z Wang, P Aljabar, G Ball, ..., G Montana",d:"Machine learning revealing associations between PPARG genetic variation and white matter connectivity in preterm infants."},
+{n:"MultiScaleComm",c:"b",y:2017,v:"PAP 2017",o:"Multi-scale community detection in temporal networks using spectral graph wavelets",a:"Z Kuncheva, G Montana",d:"Spectral graph wavelets for community detection at multiple scales in temporal networks."},
+{n:"GraphEmbed",c:"p",y:2017,v:"Frontiers Comput Neurosci 2017",o:"Decoding time-varying functional connectivity via linear graph embedding",a:"RP Monti, R Lorenz, P Hellyer, R Leech, C Anagnostopoulos, G Montana",d:"Linear graph embedding methods for decoding dynamic functional connectivity patterns."},
+// 2016
+{n:"RadNLP",c:"g",y:2016,v:"Health Text Mining 2016",o:"Modelling radiological language with bidirectional LSTMs",a:"S Cornegruta, R Bakewell, S Withey, G Montana",d:"Bidirectional LSTMs for extracting structured information from radiology reports at scale."},
+{n:"CardiacFCN",c:"g",y:2016,v:"RAMBO 2016",o:"Recurrent fully convolutional neural networks for multi-slice MRI cardiac segmentation",a:"RPK Poudel, P Lamata, G Montana",d:"Recurrent FCN exploiting inter-slice dependencies for cardiac MRI segmentation."},
+{n:"AutoNeuro",c:"p",y:2016,v:"NeuroImage 2016",o:"The Automatic Neuroscientist: optimising experimental design with real-time fMRI",a:"R Lorenz, RP Monti, IR Violante, C Anagnostopoulos, AA Faisal, ..., G Montana",d:"Closed-loop Bayesian optimisation for automatic real-time fMRI experiment design."},
+{n:"RecurrentCT",c:"g",y:2016,v:"2016",o:"Recurrent convolutional networks for pulmonary nodule detection in CT",a:"PP Ypsilantis, G Montana",d:"Recurrent convolutional architecture for detecting pulmonary nodules in CT sequences."},
+{n:"HeatKernelBrain",c:"p",y:2016,v:"NeuroImage 2016",o:"Characterising brain network topologies with heat kernels",a:"AW Chung, MD Schirmer, ML Krishnan, G Ball, P Aljabar, ..., G Montana",d:"Heat kernel approach for dynamic analysis of brain network topology from structural connectivity."},
+{n:"HeatKernelHCP",c:"p",y:2016,v:"PRNI 2016",o:"Classifying HCP task-fMRI networks using heat kernels",a:"AW Chung, E Pesce, RP Monti, G Montana",d:"Heat kernel methods for classifying task-related functional networks from HCP data."},
+{n:"StopCritFMRI",c:"p",y:2016,v:"2016",o:"Stopping criteria for boosting automatic experimental design using real-time fMRI",a:"R Lorenz, RP Monti, IR Violante, AA Faisal, C Anagnostopoulos, R Leech, G Montana",d:"Stopping criteria for Bayesian optimisation in closed-loop fMRI experimental design."},
+{n:"AdaptStreamReg",c:"b",y:2016,v:"2016",o:"Streaming regularization parameter selection via stochastic gradient descent",a:"RP Monti, R Lorenz, R Leech, C Anagnostopoulos, G Montana",d:"Online selection of regularisation parameters for streaming regression using SGD."},
+// 2015
+{n:"3D-AlzNet",c:"p",y:2015,v:"arXiv 2015",o:"3D CNNs for Alzheimer's disease prediction from neuroimaging",a:"A Payan, G Montana",d:"One of the first 3D CNN applications to neuroimaging for Alzheimer's prediction."},
+{n:"DeepSeg",c:"p",y:2015,v:"CVPR 2015",o:"Deep neural networks for anatomical brain segmentation",a:"A de Brebisson, G Montana",d:"Deep networks for whole-brain segmentation outperforming atlas-based methods."},
+{n:"PET-CNN",c:"g",y:2015,v:"PLoS ONE 2015",o:"Predicting chemotherapy response with PET imaging using CNNs",a:"PP Ypsilantis, M Siddique, HM Sohn, ..., G Montana",d:"CNNs applied to PET imaging for predicting response to neoadjuvant chemotherapy."},
+{n:"GI-Boost",c:"g",y:2015,v:"PLoS ONE 2015",o:"Prediction of outcome in acute lower GI bleeding using gradient boosting",a:"L Ayaru, PP Ypsilantis, ..., G Montana",d:"Gradient boosting for predicting outcomes in acute lower gastrointestinal bleeding."},
+{n:"MultiplexRW",c:"b",y:2015,v:"IEEE/ACM ASONAM 2015",o:"Community detection in multiplex networks using locally adaptive random walks",a:"Z Kuncheva, G Montana",d:"Locally adaptive random walks for community detection across multiple interconnected network layers."},
+{n:"DiffNets",c:"b",y:2015,v:"BMC Bioinformatics 2015",o:"Differential analysis of biological networks",a:"D Ruan, A Young, G Montana",d:"Methods for identifying differences between biological networks across conditions."},
+{n:"SparseMultiView",c:"b",y:2015,v:"Bioinformatics 2015",o:"Sparse multi-view matrix factorisation for multiple tissue comparisons",a:"Z Wang, W Yuan, G Montana",d:"Sparse multi-view matrix factorisation for joint analysis of gene expression across tissues."},
+{n:"CalibSpline",c:"g",y:2015,v:"HCMS 2015",o:"Classifier calibration using splined empirical probabilities in clinical risk prediction",a:"R Gaudoin, G Montana, S Jones, P Aylin, A Bottle",d:"Spline-based calibration method for clinical risk prediction models."},
+{n:"GraphEmbedFConn",c:"p",y:2015,v:"PRNI 2015",o:"Graph embeddings of dynamic functional connectivity reveal discriminative patterns",a:"R Monti, R Lorenz, P Hellyer, R Leech, C Anagnostopoulos, G Montana",d:"Graph embedding methods revealing discriminative patterns of task engagement from dynamic connectivity."},
+{n:"ConnFMRI-BCI",c:"p",y:2015,v:"2015",o:"Measuring the functional connectome on-the-fly for fMRI brain-computer interfaces",a:"RP Monti, R Lorenz, C Anagnostopoulos, R Leech, G Montana",d:"On-the-fly functional connectome estimation as a control signal for fMRI-based BCIs."},
+// 2014
+{n:"DynBrainConn",c:"p",y:2014,v:"NeuroImage 2014",o:"Estimating time-varying brain connectivity networks from fMRI",a:"RP Monti, P Hellyer, D Sharp, R Leech, C Anagnostopoulos, G Montana",d:"Estimating time-varying functional brain connectivity from fMRI time series."},
+{n:"SubspacePLS",c:"b",y:2014,v:"DMKD 2014",o:"Subspace clustering of high-dimensional data: a predictive approach",a:"B McWilliams, G Montana",d:"Predictive subspace clustering combining clustering with prediction for high-dimensional data."},
+{n:"DistANOVA",c:"b",y:2014,v:"Stat Anal Data Mining 2014",o:"Distance-based analysis of variance: approximate inference",a:"C Minas, G Montana",d:"Approximate inference for distance-based ANOVA enabling nonparametric testing on complex data."},
+{n:"NetMethyl",c:"b",y:2014,v:"Bioinformatics 2014",o:"Network-guided regression for DNA methylation and gene expression",a:"Z Wang, E Curry, G Montana",d:"Integrating biological network knowledge with methylation-expression association analysis."},
+{n:"BayesMixLasso",c:"b",y:2014,v:"CSDA 2014",o:"Bayesian mixture of lasso regressions with t-errors",a:"A Cozzini, A Jasra, G Montana, A Persing",d:"Bayesian mixture model combining lasso with heavy-tailed errors for robust variable selection."},
+{n:"GraphGuidedGLasso",c:"b",y:2014,v:"Imaging Genetics 2014",o:"The graph-guided group lasso for genome-wide association studies",a:"Z Wang, G Montana",d:"Graph-guided group lasso incorporating prior network structure for GWAS analysis."},
+// 2013
+{n:"PathwayHDL",c:"b",y:2013,v:"PLoS Genetics 2013",o:"Pathways-driven sparse regression for HDL cholesterol in Asian cohorts",a:"M Silver, P Chen, R Li, CY Cheng, ..., G Montana",d:"Pathways-driven sparse regression identifying genes and pathways associated with HDL cholesterol."},
+{n:"DistAssoc",c:"b",y:2013,v:"Bioinformatics 2013",o:"Distance-based test of association between paired heterogeneous genomic data",a:"C Minas, E Curry, G Montana",d:"Distance-based statistical test for association between different types of paired genomic datasets."},
+{n:"RF-Hadoop",c:"b",y:2013,v:"BMC Bioinformatics 2013",o:"Random forests on Hadoop for genome-wide association studies",a:"Y Wang, W Goh, L Wong, G Montana",d:"Distributed random forests on Hadoop for scalable GWAS of neuroimaging phenotypes."},
+{n:"RF-Distance",c:"b",y:2013,v:"Stat Appl Genet Mol Biol 2013",o:"Random forests on distance matrices for imaging genetics",a:"A Sim, D Tsagkrasoulis, G Montana",d:"Random forest methods operating on distance matrices for imaging genetics studies."},
+{n:"MixCluster",c:"b",y:2013,v:"J Bioinform Comput Biol 2013",o:"Model-based clustering with gene ranking using penalised mixtures",a:"A Cozzini, A Jasra, G Montana",d:"Penalised mixture models with heavy-tailed distributions for clustering and ranking genes."},
+// 2012
+{n:"SRR-AD",c:"p",y:2012,v:"NeuroImage 2012",o:"Alzheimer's gene pathways from longitudinal imaging with sparse regression",a:"M Silver, E Janousova, X Hua, PM Thompson, G Montana, ...",d:"Sparse regression identifying gene pathways in Alzheimer's using longitudinal imaging."},
+{n:"SRR-Voxel",c:"p",y:2012,v:"Elsevier 2012",o:"Sparse reduced-rank regression for voxel-wise longitudinal phenotypes",a:"M Vounou, E Janou\u0161ov\u00e1, R Wolz, ..., G Montana",d:"Sparse reduced-rank regression for genetic associations with voxel-wise longitudinal brain phenotypes."},
+{n:"GroupLasso",c:"b",y:2012,v:"Stat Appl Genet Mol Biol 2012",o:"Fast identification of biological pathways using group lasso with overlaps",a:"M Silver, G Montana, and ADNI",d:"Group lasso with overlapping groups for rapid identification of gene pathways."},
+{n:"BiomarkerAD",c:"p",y:2012,v:"BMVA 2012",o:"Biomarker discovery for sparse classification of brain images in Alzheimer's",a:"E Janou\u0161ov\u00e1, M Vounou, R Wolz, KR Gray, D Rueckert, G Montana",d:"Sparse classification methods for biomarker discovery from brain images in Alzheimer's disease."},
+{n:"MultiViewPred",c:"b",y:2012,v:"Stat Anal Data Mining 2012",o:"Multi-view predictive partitioning in high dimensions",a:"B McWilliams, G Montana",d:"Multi-view predictive partitioning for high-dimensional data from multiple sources."},
+// 2011
+{n:"MetaboBMD",c:"b",y:2011,v:"Bioinformatics 2011",o:"Statistical framework for biomarker discovery in metabolomic time course data",a:"M Berk, T Ebbels, G Montana",d:"Framework for biomarker discovery from metabolomic time course data using functional data analysis."},
+{n:"DynMeanRevert",c:"b",y:2011,v:"Comp Mgmt Science 2011",o:"Dynamic modeling of mean-reverting spreads for statistical arbitrage",a:"K Triantafyllopoulos, G Montana",d:"Dynamic state-space model for mean-reverting spread estimation in pairs trading."},
+{n:"DistGeneCurves",c:"b",y:2011,v:"Bioinformatics 2011",o:"Distance-based differential analysis of gene curves",a:"C Minas, SJ Waddell, G Montana",d:"Distance-based method for identifying differentially expressed genes from time course experiments."},
+{n:"FunctionalMicroarray",c:"b",y:2011,v:"Software Tools 2011",o:"Modelling short time series in metabolomics: functional data analysis",a:"G Montana, M Berk, T Ebbels",d:"Functional data analysis approach for modelling short metabolomic time series with covariates."},
+// 2010
+{n:"SRR",c:"p",y:2010,v:"NeuroImage 2010",o:"Sparse reduced-rank regression for neuroimaging genetics",a:"M Vounou, TE Nichols, G Montana",d:"Sparse reduced-rank regression for discovering genetic associations with high-dimensional neuroimaging phenotypes."},
+{n:"FalsePosBrain",c:"p",y:2010,v:"NeuroImage 2010",o:"False positives in neuroimaging genetics using cluster-size inference",a:"M Silver, G Montana, TE Nichols",d:"Demonstrates inflated false positive rates from cluster-size inference in neuroimaging genetics."},
+{n:"SparsePLS",c:"b",y:2010,v:"Stat Anal Data Mining 2010",o:"Sparse partial least squares for on-line variable selection in data streams",a:"B McWilliams, G Montana",d:"Sparse PLS for real-time variable selection in multivariate streaming data."},
+{n:"PRESS-PLS",c:"b",y:2010,v:"UKCI 2010",o:"A PRESS statistic for two-block partial least squares regression",a:"B McWilliams, G Montana",d:"PRESS cross-validation statistic for model selection in two-block PLS regression."},
+// 2009
+{n:"FlexLS",c:"b",y:2009,v:"Expert Systems Appl 2009",o:"Flexible least squares for temporal data mining and statistical arbitrage",a:"G Montana, K Triantafyllopoulos, T Tsagaris",d:"Flexible least squares for adaptive temporal data mining in trading strategies."},
+{n:"DataStreamMining",c:"b",y:2008,v:"SAC 2008",o:"Data stream mining for market-neutral algorithmic trading",a:"G Montana, K Triantafyllopoulos, T Tsagaris",d:"Data stream mining techniques for market-neutral algorithmic trading strategies."},
+// 2008
+{n:"IncrSVR",c:"b",y:2008,v:"HAIS 2008",o:"Learning to trade with incremental support vector regression",a:"G Montana, F Parrella",d:"Incremental SVR experts for adaptive algorithmic trading."},
+// 2006
+{n:"StatGen",c:"b",y:2006,v:"Brief Bioinform 2006",o:"Statistical methods in genetics",a:"G Montana",d:"Review of statistical methods for genetic analysis including association mapping and linkage disequilibrium."},
+{n:"FraudDetect",c:"b",y:2006,v:"Expert 2006",o:"Fraud detection in consumer credit",a:"NM Adams, DJ Hand, G Montana, DJ Weston, CW Whitrow",d:"Machine learning methods for detecting fraud in consumer credit transactions."},
+// 2005
+{n:"HapSim",c:"b",y:2005,v:"Bioinformatics 2005",o:"HapSim: simulation tool for generating haplotype data",a:"G Montana",d:"Software for simulating haplotype data with pre-specified allele frequencies and LD coefficients."},
+// 2004
+{n:"AdmixTest",c:"b",y:2004,v:"Am J Hum Genet 2004",o:"Statistical tests for admixture mapping with case-control data",a:"G Montana, JK Pritchard",d:"Statistical tests for admixture mapping to localise disease genes in admixed populations."},
+// 2003
+{n:"SmallSets",c:"b",y:2003,v:"Stoch Proc Appl 2003",o:"Small sets and Markov transition densities",a:"WS Kendall, G Montana",d:"Theoretical analysis of small sets and Markov chain transition densities for perfect simulation."},
+];
+
+var colorMap={b:'var(--accent)',c:'var(--cyan)',g:'var(--green)',p:'var(--purple)',o:'var(--orange)'};
+
+function render(){
+  var h='';
+  P.forEach(function(p){
+    h+='<div class="card" onclick="this.classList.toggle(\'open\')">';
+    h+='<div class="card-left">';
+    h+='<div class="card-name" style="color:'+colorMap[p.c]+'">'+p.n+'</div>';
+    h+='<div class="card-venue">'+p.v+'</div>';
+    h+='</div>';
+    h+='<div class="card-right">';
+    h+='<div class="card-oneliner">'+p.o+'</div>';
+    h+='</div>';
+    h+='<div class="card-detail">';
+    h+='<div class="meta">'+p.a+'</div>';
+    h+='<p>'+p.d+'</p>';
+    h+='</div>';
+    h+='</div>';
+  });
+  document.getElementById('algoList').innerHTML=h;
+}
+render();
+</script>
+</body>
+</html>
