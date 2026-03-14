@@ -20,12 +20,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-
 .prompt span{color:var(--green)}
 h1{font-family:'JetBrains Mono',monospace;font-size:2.8rem;font-weight:700;color:#fff;letter-spacing:-1.5px;margin-bottom:16px}
 .subtitle{font-size:1.08rem;color:var(--text);max-width:640px;margin-bottom:24px;line-height:1.75}
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.links a{font-family:'JetBrains Mono',monospace;font-size:.76rem;color:var(--accent);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:6px;transition:.2s;letter-spacing:.2px}
-.links a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.links{display:flex;gap:20px;flex-wrap:wrap;margin-top:4px}
+.links a{font-family:'Inter',sans-serif;font-size:.88rem;color:var(--accent);text-decoration:none;transition:.2s}
+.links a:hover{color:var(--white)}
 .section{max-width:1060px;margin:0 auto;padding:16px 32px 64px}
 .section-head{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px;letter-spacing:.5px}
 .section-head::before{content:'$';color:var(--green);font-weight:700}
+.section-title{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:24px;letter-spacing:-.3px}
 .algo-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;align-items:start}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:.25s;display:flex;flex-direction:column;position:relative}
 .card:hover{border-color:var(--border-hover);background:var(--card-hover);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
@@ -52,6 +53,7 @@ h1{font-family:'JetBrains Mono',monospace;font-size:2.8rem;font-weight:700;color
   </div>
 </div>
 <div class="section">
+  <h2 class="section-title">Selected Algorithms</h2>
   <div class="algo-list" id="algoList"></div>
 </div>
 <div class="footer">
@@ -111,7 +113,6 @@ var P=[
 {n:"Plangan",c:"b",y:2020,v:"NeurIPS 2020",o:"Model-based planning with sparse rewards and multiple goals",a:"H Charlesworth, G Montana",d:"Planning with learned world models for sparse-reward, multi-goal environments."},
 {n:"TopoPersist",c:"g",y:2020,v:"STACOM 2020",o:"Persistent homology-based topological loss for cardiac MRI",a:"N Byrne, JR Clough, G Montana, AP King",d:"Workshop version introducing topological loss for cardiac segmentation using persistent homology."},
 {n:"FollowObj",c:"b",y:2020,v:"2020",o:"Curriculum learning for manipulation tasks with imagined goals",a:"O Kilinc, G Montana",d:"Curriculum learning using imagined goals to progressively increase manipulation task difficulty."},
-{n:"BrainAgeOrd",c:"p",y:2020,v:"SPIE Medical Imaging 2020",o:"Ordinal regression CNN for brain age prediction from MRI",a:"K Sokolova, GJ Barker, G Montana",d:"Ordinal regression CNN for more robust brain age prediction from MRI scans."},
 {n:"FetalAorta",c:"g",y:2020,v:"Neural Comput & Applic 2020",o:"Real-time fetal aorta diameter measurement from ultrasound",a:"N Savioli, E Grisan, S Visentin, E Cosmi, G Montana, P Lamata",d:"Automated real-time measurement of fetal aorta diameter from ultrasound images."},
 {n:"MARL-Noisy",c:"c",y:2020,v:"Machine Learning 2020",o:"Improving coordination in small-scale multi-agent deep RL through memory-driven communication",a:"E Pesce, G Montana",d:"Memory-driven communication for multi-agent coordination robust to extremely noisy observations."},
 // 2019
@@ -195,14 +196,11 @@ var P=[
 // 2008
 {n:"IncrSVR",c:"b",y:2008,v:"HAIS 2008",o:"Learning to trade with incremental support vector regression",a:"G Montana, F Parrella",d:"Incremental SVR experts for adaptive algorithmic trading."},
 // 2006
-{n:"StatGen",c:"b",y:2006,v:"Brief Bioinform 2006",o:"Statistical methods in genetics",a:"G Montana",d:"Review of statistical methods for genetic analysis including association mapping and linkage disequilibrium."},
-{n:"FraudDetect",c:"b",y:2006,v:"Expert 2006",o:"Fraud detection in consumer credit",a:"NM Adams, DJ Hand, G Montana, DJ Weston, CW Whitrow",d:"Machine learning methods for detecting fraud in consumer credit transactions."},
 // 2005
 {n:"HapSim",c:"b",y:2005,v:"Bioinformatics 2005",o:"HapSim: simulation tool for generating haplotype data",a:"G Montana",d:"Software for simulating haplotype data with pre-specified allele frequencies and LD coefficients."},
 // 2004
 {n:"AdmixTest",c:"b",y:2004,v:"Am J Hum Genet 2004",o:"Statistical tests for admixture mapping with case-control data",a:"G Montana, JK Pritchard",d:"Statistical tests for admixture mapping to localise disease genes in admixed populations."},
 // 2003
-{n:"SmallSets",c:"b",y:2003,v:"Stoch Proc Appl 2003",o:"Small sets and Markov transition densities",a:"WS Kendall, G Montana",d:"Theoretical analysis of small sets and Markov chain transition densities for perfect simulation."},
 ];
 
 var colorMap={b:'var(--accent)',c:'var(--cyan)',g:'var(--green)',p:'var(--purple)',o:'var(--orange)'};
